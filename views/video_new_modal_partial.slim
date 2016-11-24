@@ -1,0 +1,22 @@
+div id="newVideoModal" class="modal fade" role="dialog"
+  div class="modal-dialog"
+    div class="modal-content"
+      div class="modal-header"
+        h4 New Video
+      div class="modal-body"
+        form role="form" action="/new_video" method='post' id='new-video-form'
+          div class="form-video"
+            label for='yt_video_url_input' YouTube Video URL:
+            input{ 
+              type='text' name='video_url'
+              id='yt_video_url_input' class="form-control"
+              placeholder="e.g.: https://www.youtube.com/watch?v=OyDSCKYz5sA"
+            }
+          button{ 
+            type='submit' id='video-form-submit' class='submit' 
+            value='submit' class="btn btn-success" 
+          } Create
+          
+          button{ 
+            type="button" class="btn btn-default" data-dismiss="modal" 
+          } Cancel
