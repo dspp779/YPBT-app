@@ -15,7 +15,7 @@ class YouTagit < Sinatra::Base
     Econfig.root = File.expand_path('..', settings.root)
   end
 
-  use Rack::Session::Cookie#, secret: Groupster.config.SECRET
+  use Rack::Session::Cookie, secret: YouTagit.config.YOUTUBE_API_KEY
   use Rack::Flash
 
   set :views, File.expand_path('../../views', __FILE__)

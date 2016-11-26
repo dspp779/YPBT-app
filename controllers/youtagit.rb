@@ -2,22 +2,28 @@
 
 # YouTagit web application
 class YouTagit < Sinatra::Base
-  # Home page: show list of all groups
+  # Home page: show list of all Videos
   get '/?' do
-=begin
-    result = GetAllGroups.call
-    if result.success?
-      @data = result.value
-    else
-      flash[:error] = result.value.message
-    end
-=end
+    # have bugs
+    # result = GetAllVideos.call
+    # if result.success?
+    #   @data = result.value
+    # else
+    #   flash[:error] = result.value.message
+    # end
+
     slim :video
   end
 
   post '/new_video/?' do
-    if true
-      flash[:notice] = "Video successfully added"
+    # have bugs
+    # url_request = UrlRequest.call(params)
+    # result = CreateNewVideo.call(url_request)
+
+    if true # result.success?
+      flash[:notice] = 'Group successfully added'
+    else
+      flash[:error] = result.value.message
     end
 
     redirect '/'
