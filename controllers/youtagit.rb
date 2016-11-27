@@ -16,7 +16,7 @@ class YouTagit < Sinatra::Base
   end
 
   post '/new_video/?' do
-    # have bugs
+  
     url_request = UrlRequest.call(params)
     result = CreateNewVideo.call(url_request)
 
