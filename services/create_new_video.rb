@@ -8,7 +8,7 @@ class CreateNewVideo
   def self.call(url_request)
     Dry.Transaction(container: self) do
       step :validate_url_request
-      step :call_api_to_load_group
+      step :call_api_to_load_video
       step :return_api_result
     end.call(url_request)
   end

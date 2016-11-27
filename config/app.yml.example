@@ -1,7 +1,7 @@
 ---
 development:
   YPBT_API: 'http://localhost:9292/api/v0.1'
-  YOUTUBE_API_KEY: 'AIzaSyDokkPn7eYcv3JuXq1S3zZivO-cqIsSkuM'
+  YOUTUBE_API_KEY: 'AIzaSyApzaOqH13x9gJNdXjUnq4F4H1FXb9RRnY'
 
 test:
   YPBT_API: 'http://localhost:9292/api/v0.1'
