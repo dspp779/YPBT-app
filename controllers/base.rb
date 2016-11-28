@@ -18,7 +18,7 @@ class YouTagit < Sinatra::Base
   use Rack::Session::Cookie, secret: YouTagit.config.YOUTUBE_API_KEY
   use Rack::Flash
 
-  set :views, File.expand_path('../../views', __FILE__)
+  set :views, File.expand_path('../../views_html', __FILE__)
   set :public_dir, File.expand_path('../../public', __FILE__)
 
   after do

@@ -12,7 +12,20 @@ class YouTagit < Sinatra::Base
       flash[:error] = result.value.message
     end
 
-    slim :video
+    slim :home_page
+  end
+
+  post '/search_video/?' do
+    url_request = UrlRequest.call(params)
+    results = SearchVideo.call(url_request)
+
+    if results.success?
+      video_info = results.value
+      @video = VideoInfoRepresenter.new(video_info).to_json
+      slim :search_results
+    else
+      flash[:error] = results.value.message
+    end
   end
 
   post '/new_video/?' do

@@ -1,14 +1,12 @@
 ---
 development:
   YPBT_API: 'http://localhost:9292/api/v0.1'
-  YOUTUBE_API_KEY: 'AIzaSyApzaOqH13x9gJNdXjUnq4F4H1FXb9RRnY'
+  YOUTUBE_API_KEY: 'secret key'
 
 test:
   YPBT_API: 'http://localhost:9292/api/v0.1'
-  SECRET: 'some secret'
-  YOUTUBE_API_KEY: 'AIzaSyDokkPn7eYcv3JuXq1S3zZivO-cqIsSkuM'
+  SECRET: 'secret key'
 
 production:
   YPBT_API: 'https://my-server.com/api/v0.1'
-  SECRET: 'some secret'
-  YOUTUBE_API_KEY: 'AIzaSyDokkPn7eYcv3JuXq1S3zZivO-cqIsSkuM'
+  SECRET: 'secret key'
