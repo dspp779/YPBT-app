@@ -9,7 +9,7 @@ class YouTagit < Sinatra::Base
     if result.success?
       @data = result.value
     else
-      flash[:error] = result.value.message
+      #flash[:error] = result.value.message
     end
 
     slim :home_page
@@ -21,10 +21,11 @@ class YouTagit < Sinatra::Base
 
     if results.success?
       video_info = results.value
-      @video = VideoInfoRepresenter.new(video_info).to_json
-      slim :search_results
+      @video = video_info
+      slim :video_viewer
     else
       flash[:error] = results.value.message
+      redirect '/'
     end
   end
 
