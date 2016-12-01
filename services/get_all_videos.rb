@@ -5,7 +5,7 @@ class GetAllVideos
   extend Dry::Monads::Either::Mixin
 
   def self.call
-    results = HTTP.get("#{YouTagit.config.YPBT_API}/video")
+    results = HTTP.get("#{YouTagit.config.YPBT_API}/Videos")
     Right(VideosRepresenter.new(Videos.new).from_json(results.body))
   rescue
     Left(Error.new('Our servers failed - we are investigating!'))

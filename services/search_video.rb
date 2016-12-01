@@ -22,7 +22,7 @@ class SearchVideo
 
   register :api_call, lambda { |video_id|
     begin
-      Right(HTTP.get("#{YouTagit.config.YPBT_API}/video/#{video_id}"))
+      Right(HTTP.get("#{YouTagit.config.YPBT_API}/Video/#{video_id}"))
     rescue
       Left(Error.new('Our servers failed - we are investigating!'))
     end

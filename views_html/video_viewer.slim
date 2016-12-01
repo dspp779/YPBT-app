@@ -26,3 +26,15 @@ p
 p
   b duration: 
   = @video.duration
+p
+  b channel title:
+  = @video.channel_title
+p
+  b channel description:
+  = @video.channel_image_url
+p
+  b channel_image_url
+  = @video.channel_description
+
+- results = HTTP.get("#{YouTagit.config.YPBT_API}/Comments/#{@video.video_id}")
+- comments = results.body.to_s
