@@ -1,3 +1,10 @@
+/! 16:9 aspect ratio
+.embed-responsive.embed-responsive-16by9
+  iframe{
+    height="315"
+    width="420"
+    src="https://www.youtube.com/embed/#{@video.video_id}"
+  }
 p
   b video_id: 
   = @video.video_id

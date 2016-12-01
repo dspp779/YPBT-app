@@ -15,7 +15,7 @@ class YouTagit < Sinatra::Base
     slim :home_page
   end
 
-  post '/search_video/?' do
+  get '/video_viewer/?' do
     url_request = UrlRequest.call(params)
     results = SearchVideo.call(url_request)
 

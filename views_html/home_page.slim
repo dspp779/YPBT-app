@@ -11,11 +11,11 @@ div class="row" style="vertical-align: bottom;"
 table class="table"
   thead
     tr
-      th Facebook Group Name
+      th Recorded YouTube Video
   tbody
     - @data&.videos&.each do |video|
       tr
         td
-          a href="/video/#{video[:video_id]}" #{video[:title]}
+          a href="/video_viewer/?video_url=https://www.youtube.com/watch?v=#{video[:video_id]}" #{video[:title]}
 
 include :video_new_modal_partial
