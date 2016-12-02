@@ -1,0 +1,19 @@
+#search-bar-container
+{
+    padding:6px;
+    background-color:rgb(208,206,206);
+    border-radius: 4px;
+}
+
+.logo-addon
+{
+    background-color: inherit;
+    border: 0px;
+    padding: 0px;
+    padding-right: 6px;
+}
+
+.search-input {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}

@@ -1,14 +1,18 @@
-form role="form" action="/video_viewer" method='GET' id='search-video-form'
-  label for='yt_video_url_input' Search YouTube Video URL:
-  div class="input-group"
-    input{
-      type="text" class="search-video form-control" name="video_url"
-      id='yt_video_url_input' class="form-control"
-      placeholder="e.g.: https://www.youtube.com/watch?v=OyDSCKYz5sA"
-    }
-    span class="input-group-btn"
-      button{
-        class="submit btn btn-danger" type="submit" id='search-form-submit'
-        value='submit'
-      }
-        span class=" glyphicon glyphicon-search"
+  form role="form" action="/video_viewer" method='GET' id='search-video-form'
+    label for='yt_video_url_input' Search YouTube Video URL:
+    div class="container" id="search-bar-container"
+      
+      div class="input-group"
+        span class="input-group-addon logo-addon"
+          image src="logo.png"
+        input{
+          type="text" class="search-video form-control search-input" name="video_url"
+          id="yt_video_url_input" class="form-control"
+          placeholder="e.g.: https://www.youtube.com/watch?v=OyDSCKYz5sA"
+        }
+        span class="input-group-btn"
+          button{
+            class="submit btn btn-danger" type="submit" id="search-form-submit"
+            value="submit"
+          }
+            span class=" glyphicon glyphicon-search"
