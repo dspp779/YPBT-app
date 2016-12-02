@@ -3,4 +3,4 @@
 
 This is our Lo-Fi Storyboards
 
-![alt text](https://scontent-tpe1-1.xx.fbcdn.net/v/t35.0-12/15224837_1450694938281994_1745504729_o.png?oh=023071596fffda0787accc347cc2bf7c&oe=583CCCA7 )
+![alt text](https://raw.githubusercontent.com/RubyStarts3/YPBT-app/master/public/story.png)
