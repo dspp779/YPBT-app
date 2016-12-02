@@ -5,35 +5,32 @@
     width="420"
     src="https://www.youtube.com/embed/#{@video.video_id}"
   }
-p
-  b video_id: 
-  = @video.video_id
-p
-  b title: 
-  = @video.title
-p
-  b description: 
-  = @video.description
-p
-  b view_count: 
-  = @video.view_count
-p
-  b like_count: 
-  = @video.like_count
-p
-  b dislike_count: 
-  = @video.dislike_count
-p
-  b duration: 
-  = @video.duration
-p
-  b channel title:
-  = @video.channel_title
-p
-  b channel description:
-  = @video.channel_image_url
-p
-  b channel_image_url
+.container.content-container
+  h4
+    = @video.title
+  p
+    = @video.description
+.container.content-container
+  p
+    b view_count: 
+    = @video.view_count
+  p
+    b like_count: 
+    = @video.like_count
+  p
+    b dislike_count: 
+    = @video.dislike_count
+  p
+    b duration: 
+    = @video.duration
+  p
+    b channel title:
+    = @video.channel_title
+  p
+    b channel description:
+    = @video.channel_image_url
+  p
+    b channel_image_url
   = @video.channel_description
 
 - results = HTTP.get("#{YouTagit.config.YPBT_API}/Comments/#{@video.video_id}")
