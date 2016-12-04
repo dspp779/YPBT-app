@@ -46,5 +46,6 @@
     b duration: 
     = @video_info.duration
 
+
 - results = HTTP.get("#{YouTagit.config.YPBT_API}/Comments/#{@video_info.video_id}")
 - comments = results.body.to_s
