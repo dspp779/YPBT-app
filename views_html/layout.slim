@@ -1,32 +1,22 @@
 doctype html
-html
+html lang="en"
   head
     title YouTagit
-    script{
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"
-    }
-    script{
-      src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"
-    }
-
-    link{
-      rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
-    }
-    script{
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"
-    }
+    link href="https://bootswatch.com/journal/bootstrap.min.css" rel="stylesheet" /
+    script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+    script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     link{
     rel="stylesheet" href="/home_page/css/home_page.css"
     }
   body
-    / == slim :nav
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          a.navbar-brand href="/"  YouTagit
+          p.navbar-text Tag your favorite moments on YouTube Videos
+        / == slim :nav
     .container id="html_body"
       a class="title-style" href="/"
-        h1 YouTagit
-      p Tag your favorite moments on YouTube Videos
-
       section
          include :search_bar
          include :flash_bar

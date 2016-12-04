@@ -1,21 +1,4 @@
 div class="row" style="vertical-align: bottom;"
   div class="col-xs-9"
-    h3 All Videos
-  div class="col-xs-3"
-    button{ type="button"
-      class="btn btn-success"
-      data-toggle="modal"
-      data-target="#newVideoModal"
-    } + New Video
-
-table class="table"
-  thead
-    tr
-      th Recorded YouTube Video
-  tbody
-    - @data&.videos&.each do |video|
-      tr
-        td
-          a class="hover-highlight" href="/video_viewer/?video_url=https://www.youtube.com/watch?v=#{video[:video_id]}" #{video[:title]}
-
+  
 include :video_new_modal_partial
