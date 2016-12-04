@@ -19,10 +19,7 @@ class SearchTimeTags
       tags = data.map { |tag| TimeTagsInfo.new(TimeTag.new).from_hash(tag) }
       Right(tags)
     else
-      message = ErrorFlattener.new(
-        ApiErrorRepresenter.new(ApiError.new).from_json(data)
-      ).to_s
-      Left(Error.new(message))
+      Left(Error.new('Our servers failed - we are investigating!'))
     end
   }
 

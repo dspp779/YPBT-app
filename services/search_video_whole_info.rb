@@ -26,10 +26,7 @@ class SearchVideoWholeInfo
       video_all_info.time_tags = result.value
       Right(video_all_info)
     else
-      message = ErrorFlattener.new(
-        ApiErrorRepresenter.new(ApiError.new).from_json(data)
-      ).to_s
-      Left(Error.new(message))
+      Left(Error.new('Time tag not found'))
     end
   }
 
