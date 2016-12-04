@@ -7,6 +7,7 @@ class VideoInfoRepresenter < Roar::Decorator
   property :video_id
   property :title
   property :description
+  property :description_html
   property :view_count
   property :like_count
   property :dislike_count

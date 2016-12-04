@@ -31,6 +31,7 @@ class SearchVideo
   register :return_api_result, lambda { |http_result|
     data = http_result.body.to_s
     if http_result.status == 200
+      puts VideoInfoRepresenter.new(Video.new).from_json(data).class
       Right(VideoInfoRepresenter.new(Video.new).from_json(data))
     else
       message = ErrorFlattener.new(

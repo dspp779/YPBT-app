@@ -4,7 +4,6 @@
 class YouTagit < Sinatra::Base
   # Home page: show list of all Videos
   get '/?' do
-
     result = GetAllVideos.call
     if result.success?
       @data = result.value
@@ -21,7 +20,7 @@ class YouTagit < Sinatra::Base
 
     if results.success?
       video_info = results.value
-      @video = video_info
+      @video = VideoInfoView.new(video_info)
       slim :video_viewer
     else
       flash[:error] = results.value.message
@@ -30,7 +29,6 @@ class YouTagit < Sinatra::Base
   end
 
   post '/new_video/?' do
-  
     url_request = UrlRequest.call(params)
     result = CreateNewVideo.call(url_request)
 
