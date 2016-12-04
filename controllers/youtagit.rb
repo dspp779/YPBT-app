@@ -19,8 +19,7 @@ class YouTagit < Sinatra::Base
     results = SearchVideo.call(url_request)
 
     if results.success?
-      video_info = results.value
-      @video = VideoInfoView.new(video_info)
+      @video_info = results.value
       slim :video_viewer
     else
       flash[:error] = results.value.message

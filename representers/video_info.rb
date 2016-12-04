@@ -3,7 +3,6 @@
 # Represents overall video information for JSON API output
 class VideoInfoRepresenter < Roar::Decorator
   include Roar::JSON
-
   property :video_id
   property :title
   property :description

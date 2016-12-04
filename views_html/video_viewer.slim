@@ -1,37 +1,50 @@
 /! 16:9 aspect ratio
-.embed-responsive.embed-responsive-16by9
-  iframe{
-    height="315"
-    width="420"
-    src="https://www.youtube.com/embed/#{@video.video_id}"
-  }
+.container
+  .embed-responsive.embed-responsive-16by9
+    iframe{
+      height="315"
+      width="420"
+      src="https://www.youtube.com/embed/#{@video_info.video_id}"
+    }
 .container.content-container
   h4
-    = @video.title
-  p
-    = @video.description_html
+    = @video_info.title
+  .row
+    .col-sm-6
+      img {
+        src = @video_info.channel_image_url
+        href = @video_info.channel_image_url
+        height = 48
+        width = 48
+      }
+      a
+        = @video_info.channel_title
+    .col-sm-6.text-right
+      img src = "/view.png" height = 20
+      span
+        = @video_info.view_count
+      br
+      img src = "/like.png" height = 24
+      span
+        = @video_info.like_count
+      img src = "/dislike.png" height = 24
+      span
+        = @video_info.dislike_count
+      
+.container.content-container
+  p style="margin:0;"
+    == @video_info.description_first 3
+  p class="collapse" id="description-remain"
+    == @video_info.description_remain 3
+  button.btn{
+      data-toggle="collapse"
+      data-target="#description-remain"
+    } More..
+    
 .container.content-container
   p
-    b view_count: 
-    = @video.view_count
-  p
-    b like_count: 
-    = @video.like_count
-  p
-    b dislike_count: 
-    = @video.dislike_count
-  p
     b duration: 
-    = @video.duration
-  p
-    b channel title:
-    = @video.channel_title
-  p
-    b channel description:
-    = @video.channel_description
-  p
-    b channel_image_url
-  = @video.channel_image_url
+    = @video_info.duration
 
-- results = HTTP.get("#{YouTagit.config.YPBT_API}/Comments/#{@video.video_id}")
+- results = HTTP.get("#{YouTagit.config.YPBT_API}/Comments/#{@video_info.video_id}")
 - comments = results.body.to_s

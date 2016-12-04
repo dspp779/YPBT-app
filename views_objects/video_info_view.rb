@@ -1,20 +1,33 @@
 # frozen_string_literal: true
 
-class VideoInfoView
-  attr_reader :video_id, :title, :description, :view_count, :like_count,
-              :dislike_count, :duration, :channel_title, :channel_image_url,
-              :channel_description
-  def initialize(video)
-    @video_id = video.video_id
-    @title = video.title
-    @description = video.description
-    @view_count = video.view_count
-    @like_count = video.like_count
-    @dislike_count = video.dislike_count
-    @duration = video.duration
+class VideoInfoView < Video
+  def description_html
+    description.gsub(/\n/, '<br>')
   end
 
-  def description_html
-    @description.gsub(/\n/, '<br>')
+  def channel_url
+    'https://www.youtube.com/channel/'
+  end
+
+  def description_first(first_n = 3)
+    return @description_first.gsub(/\n/, '<br>') if @description_first && @first_n == first_n
+    split_description first_n
+    @description_first.gsub(/\n/, '<br>')
+  end
+
+  def description_remain(first_n = 3)
+    return @description_remain.gsub(/\n/, '<br>') if @description_remain && @first_n == first_n
+    split_description first_n
+    @description_remain.gsub(/\n/, '<br>')
+  end
+
+  private
+
+  def split_description(first_n)
+    @first_n = first_n
+    description_lines = description.split "\n"
+    line_num = description_lines.length
+    @description_first = description_lines[0..first_n].join "\n"
+    @description_remain = description_lines[first_n + 1..line_num].join "\n"
   end
 end
