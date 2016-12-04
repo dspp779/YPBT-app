@@ -31,9 +31,9 @@ group :test do
   gem 'minitest-rg'
 
   gem 'rack-test'
-
-  gem 'vcr'
-  gem 'webmock'
+  gem 'watir', '~> 6.0'
+  gem 'headless'
+  gem 'page-object'
 end
 
 group :development, :production do

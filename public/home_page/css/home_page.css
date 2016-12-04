@@ -6,6 +6,30 @@
     margin-bottom: 6px;
 }
 
+
+.title-style:link
+{
+  text-decoration: none;
+  color: black
+}
+
+.title-style:hover
+{
+  text-decoration: none;
+  color: black
+}
+
+.hover-highlight:link
+{
+  text-decoration: none;
+}
+
+.hover-highlight:hover
+{
+  text-decoration: none;
+  text-shadow: 1px 1px 10px yellow;
+}
+
 .logo-addon
 {
     background-color: inherit;
