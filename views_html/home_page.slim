@@ -16,6 +16,6 @@ table class="table"
     - @data&.videos&.each do |video|
       tr
         td
-          a href="/video_viewer/?video_url=https://www.youtube.com/watch?v=#{video[:video_id]}" #{video[:title]}
+          a class="hover-highlight" href="/video_viewer/?video_url=https://www.youtube.com/watch?v=#{video[:video_id]}" #{video[:title]}
 
 include :video_new_modal_partial

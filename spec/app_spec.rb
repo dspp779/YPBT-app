@@ -8,7 +8,7 @@ describe 'APP basics' do
   end
 
   it 'should successfully find the root route' do
-    get '/'
+    get homepage
     last_response.status.must_equal 200
   end
 end
