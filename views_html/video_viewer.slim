@@ -50,16 +50,6 @@
         data-toggle="collapse"
         data-target="#description-remain"
       } More..
-    
-.container.content-container
-  p
-    b duration: 
-    = @whole_info.video_info.duration
-    
-.container.content-container
-  - @whole_info.time_tags.each do |tag|
-    = tag.like_color
-    br
 
 script type="text/javascript" src="/home_page/js/youtube_controller.js" 
 - results = HTTP.get("#{YouTagit.config.YPBT_API}/Comments/\
