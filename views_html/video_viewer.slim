@@ -13,6 +13,7 @@
       .tag-point {
         style = "left:#{tag.start_time_percentage*100}%;\
                  background-color:rgb(255,#{tag.like_color},#{tag.like_color})"
+        onclick = "seekTo(#{tag.start_time_second});"
       }
 .container.content-container
   h4

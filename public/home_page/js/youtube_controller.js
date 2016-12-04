@@ -8,3 +8,7 @@ var tag = document.createElement('script');
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('ytplayer');
   }
+
+  function seekTo(second){
+      player.seekTo(second);
+  }
