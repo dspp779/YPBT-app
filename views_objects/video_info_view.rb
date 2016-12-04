@@ -10,24 +10,30 @@ class VideoInfoView < Video
   end
 
   def description_first(first_n = 3)
-    return @description_first.gsub(/\n/, '<br>') if @description_first && @first_n == first_n
+    return @description_first if @description_first && @first_n == first_n
     split_description first_n
-    @description_first.gsub(/\n/, '<br>')
+    @description_first
   end
 
   def description_remain(first_n = 3)
-    return @description_remain.gsub(/\n/, '<br>') if @description_remain && @first_n == first_n
+    puts @description_remain
+    return @description_remain if @description_remain && @first_n == first_n
     split_description first_n
-    @description_remain.gsub(/\n/, '<br>')
+    @description_remain
   end
 
   private
 
   def split_description(first_n)
     @first_n = first_n
+    url_pattern = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/
     description_lines = description.split "\n"
     line_num = description_lines.length
-    @description_first = description_lines[0..first_n].join "\n"
-    @description_remain = description_lines[first_n + 1..line_num].join "\n"
+    @description_first = description_lines[0..first_n].join("\n")
+                                .gsub(/\n/, '<br>')
+                                .gsub(url_pattern, '<a href=\1>\1</a>')
+    @description_remain = description_lines[first_n + 1..line_num].join("\n")
+                                .gsub(/\n/, '<br>')
+                                .gsub(url_pattern, '<a href=\1>\1</a>')
   end
 end
