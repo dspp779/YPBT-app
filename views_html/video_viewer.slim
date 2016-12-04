@@ -2,40 +2,48 @@
 .container
   .embed-responsive.embed-responsive-16by9
     iframe{
-      height="315"
-      width="420"
-      src="https://www.youtube.com/embed/#{@video_info.video_id}"
+      id="ytplayer"
+      src="https://www.youtube.com/embed/#{@whole_info.video_info.video_id}?enablejsapi=1"
+      frameborder="0"
+      allowfullscreen
     }
+.container
+  div.tag-bar
+    - @whole_info.sort_tags.each do |tag|
+      .tag-point {
+        style = "left:#{tag.start_time_percentage*100}%;\
+                 background-color:rgb(255,#{tag.like_color},#{tag.like_color})"
+      }
 .container.content-container
   h4
-    = @video_info.title
+    = @whole_info.video_info.title
   .row
     .col-sm-6
-      a href = @video_info.channel_url
+      a href = @whole_info.video_info.channel_url
         img {
-          src = @video_info.channel_image_url
+          src = @whole_info.video_info.channel_image_url
           height = 48
           width = 48
         }
       a
-        = @video_info.channel_title
+        = @whole_info.video_info.channel_title
     .col-sm-6.text-right
       img src = "/view.png" height = 20
       span
-        = @video_info.view_count
+        = @whole_info.video_info.view_count
       br
       img src = "/like.png" height = 24
       span
-        = @video_info.like_count
+        = @whole_info.video_info.like_count
       img src = "/dislike.png" height = 24
       span
-        = @video_info.dislike_count
+        = @whole_info.video_info.dislike_count
       
 .container.content-container
   p style="margin:0;"
-    == @video_info.description_first 3
+    == @whole_info.video_info.description_first 3
   p class="collapse" id="description-remain"
-    == @video_info.description_remain 3
+    == @whole_info.video_info.description_remain 3
   .container.text-center
     button.btn{
         data-toggle="collapse"
@@ -45,8 +53,14 @@
 .container.content-container
   p
     b duration: 
-    = @video_info.duration
+    = @whole_info.video_info.duration
+    
+.container.content-container
+  - @whole_info.time_tags.each do |tag|
+    = tag.like_color
+    br
 
-
-- results = HTTP.get("#{YouTagit.config.YPBT_API}/Comments/#{@video_info.video_id}")
+script type="text/javascript" src="/home_page/js/youtube_controller.js" 
+- results = HTTP.get("#{YouTagit.config.YPBT_API}/Comments/\
+                      #{@whole_info.video_info.video_id}")
 - comments = results.body.to_s

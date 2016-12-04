@@ -50,3 +50,20 @@
     border-radius: 4px;
     margin-bottom: : 6px;
 }
+.tag-point {
+    border-radius: 16px;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+}
+.tag-bar {
+    height:16px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    position: relative;
+    background-color:rgb(217,217,217);
+}
+
+.tag-point:hover {
+    background-color: rgb(255,20,20)!important;;
+}
