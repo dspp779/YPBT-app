@@ -30,10 +30,10 @@ class VideoInfoView < Video
     description_lines = description.split "\n"
     line_num = description_lines.length
     @description_first = description_lines[0..first_n].join("\n")
-                                .gsub(/\n/, '<br>')
                                 .gsub(url_pattern, '<a href=\1>\1</a>')
+                                .gsub(/\n/, '<br>')
     @description_remain = description_lines[first_n + 1..line_num].join("\n")
-                                .gsub(/\n/, '<br>')
                                 .gsub(url_pattern, '<a href=\1>\1</a>')
+                                .gsub(/\n/, '<br>')
   end
 end
