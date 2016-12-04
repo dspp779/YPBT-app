@@ -11,7 +11,7 @@ class YouTagit < Sinatra::Base
       #flash[:error] = result.value.message
     end
 
-    slim :home_page
+    slim :videos
   end
 
   get '/video_viewer/?' do
