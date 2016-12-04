@@ -1,4 +1,15 @@
-div class="row" style="vertical-align: bottom;"
+div class="row" style="vertical-align: bottom; display: none"
   div class="col-xs-9"
-  
+    h3 All Videos
+
+table class="table" style="display: none"
+  thead
+    tr
+      th Recorded YouTube Video
+  tbody
+    - @data&.videos&.each do |video|
+      tr
+        td
+          a class="hover-highlight" href="/video_viewer/?video_url=https://www.youtube.com/watch?v=#{video[:video_id]}" #{video[:title]}
+
 include :video_new_modal_partial
