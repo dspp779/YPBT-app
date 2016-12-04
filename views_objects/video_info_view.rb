@@ -6,7 +6,7 @@ class VideoInfoView < Video
   end
 
   def channel_url
-    'https://www.youtube.com/channel/'
+    'https://www.youtube.com/channel/' + channel_id
   end
 
   def description_first(first_n = 3)

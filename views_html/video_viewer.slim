@@ -11,12 +11,12 @@
     = @video_info.title
   .row
     .col-sm-6
-      img {
-        src = @video_info.channel_image_url
-        href = @video_info.channel_image_url
-        height = 48
-        width = 48
-      }
+      a href = @video_info.channel_url
+        img {
+          src = @video_info.channel_image_url
+          height = 48
+          width = 48
+        }
       a
         = @video_info.channel_title
     .col-sm-6.text-right
