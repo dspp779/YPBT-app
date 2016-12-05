@@ -16,7 +16,6 @@ class VideoInfoView < Video
   end
 
   def description_remain(first_n = 3)
-    puts @description_remain
     return @description_remain if @description_remain && @first_n == first_n
     split_description first_n
     @description_remain
@@ -26,14 +25,14 @@ class VideoInfoView < Video
 
   def split_description(first_n)
     @first_n = first_n
-    url_pattern = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/
     description_lines = description.split "\n"
     line_num = description_lines.length
-    @description_first = description_lines[0..first_n].join("\n")
-                                .gsub(url_pattern, '<a href=\1>\1</a>')
-                                .gsub(/\n/, '<br>')
-    @description_remain = description_lines[first_n + 1..line_num].join("\n")
-                                .gsub(url_pattern, '<a href=\1>\1</a>')
-                                .gsub(/\n/, '<br>')
+    @description_first = to_html(description_lines[0..first_n].join("\n"))
+    @description_remain = to_html(description_lines[first_n + 1..line_num].join("\n"))
+  end
+
+  def to_html(text)
+    url_pattern = %r{/(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/}
+    text.gsub(url_pattern, '<a href=\1>\1</a>').gsub(/\n/, '<br>')
   end
 end
