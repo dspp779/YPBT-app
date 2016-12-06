@@ -29,9 +29,9 @@ class SearchVideo
   }
 
   register :return_api_result, lambda { |http_result|
-    data = http_result.body.to_s
     if http_result.status == 200
-      Right(VideoInfoRepresenter.new(VideoInfoView.new).from_json(data))
+      data = http_result.body.to_s
+      Right(VideoInfoRepresenter.new(Video.new).from_json(data))
     else
       message = ErrorFlattener.new(
         ApiErrorRepresenter.new(ApiError.new).from_json(data)

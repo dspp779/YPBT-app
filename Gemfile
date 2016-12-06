@@ -10,7 +10,6 @@ gem 'rake'
 gem 'slim'
 gem 'rack-flash3'
 gem 'ruby-duration'
-
 gem 'http'
 
 gem 'roar'
@@ -22,7 +21,6 @@ gem 'dry-transaction'
 
 group :development do
   gem 'rerun'
-
   gem 'flog'
   gem 'flay'
 end
@@ -30,7 +28,6 @@ end
 group :test do
   gem 'minitest'
   gem 'minitest-rg'
-
   gem 'rack-test'
   gem 'watir', '~> 6.0'
   gem 'headless'

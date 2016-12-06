@@ -9,7 +9,7 @@ class SearchVideoWholeInfo
     video_result = SearchVideo.call(url_request)
     if video_result.success?
       video_all_info = VideoAllInfoView.new
-      video_all_info.video_info = video_result.value
+      video_all_info.video_info = VideoInfoView.new(video_result.value)
       Right(video_all_info)
     else
       message = ErrorFlattener.new(
@@ -23,7 +23,7 @@ class SearchVideoWholeInfo
     video_id = video_all_info.video_info.video_id
     result = SearchTimeTags.call(video_id)
     if result.success?
-      video_all_info.time_tags = result.value
+      video_all_info._time_tags = result.value
       Right(video_all_info)
     else
       Left(Error.new('Time tag not found'))

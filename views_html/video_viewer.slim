@@ -9,11 +9,13 @@
     }
 .container
   div.tag-bar
-    - @whole_info.sort_tags.each do |tag|
+    - @whole_info.time_tags.each do |tag|
       .tag-point {
         style = "left:#{tag.start_time_percentage*100}%;\
                  background-color:rgb(255,#{tag.like_color},#{tag.like_color})"
         onclick = "seekTo(#{tag.start_time_second});"
+        id= "#{tag.time_tag_id}"
+        data-container = "body"
       }
 .container.content-container
   h4
@@ -26,6 +28,7 @@
           height = 48
           width = 48
         }
+      a href = @whole_info.video_info.channel_url
         = @whole_info.video_info.channel_title
     .col-sm-6.text-right
       img src = "/view.png" height = 20

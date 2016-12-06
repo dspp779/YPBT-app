@@ -1,5 +1,12 @@
 # frozen_string_literal: true
+require 'ruby-duration'
 
-TimeTag = Struct.new :time_tag_id, :start_time, :end_time, :tag_type,
-                     :start_time_percentage, :end_time_percentage, :like_count,
-                     :like_color, :start_time_second
+class TimeTag
+  attr_accessor :time_tag_id, :start_time, :end_time, :tag_type,
+                :start_time_percentage, :end_time_percentage, :like_count,
+                :like_color, :comment_text_display, :comment_author_name,
+                :comment_author_channel_url, :comment_author_image_url
+  def start_time_second
+    Duration.new(start_time).total
+  end
+end

@@ -67,3 +67,9 @@
 .tag-point:hover {
     background-color: rgb(255,20,20)!important;;
 }
+.popover{
+    max-width: 100%; // Max Width of the popover (depending on the container!)
+}
+.tag-detail{
+    width: 300px;
+}

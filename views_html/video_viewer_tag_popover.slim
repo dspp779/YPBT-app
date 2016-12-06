@@ -1,0 +1,13 @@
+.tag-detail
+  a href="#{ @tag.comment_author_channel_url }"
+    img src="#{ @tag.comment_author_image_url }"
+  = @tag.comment_author_name
+  .pull-right style="margin-top:25px;"
+    img src= "/like.png" style="height:25px;"
+    = @tag.like_count
+  br
+  div
+    p 
+      ==@tag.comment_text_display
+    
+  

@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
-class VideoInfoView < Video
+class VideoInfoView < SimpleDelegator
+  def initialize(video)
+    super(video)
+  end
+
   def description_html
     description.gsub(/\n/, '<br>')
   end
@@ -24,15 +28,23 @@ class VideoInfoView < Video
   private
 
   def split_description(first_n)
-    @first_n = first_n
     description_lines = description.split "\n"
+    @first_n = first_n
     line_num = description_lines.length
-    @description_first = to_html(description_lines[0..first_n].join("\n"))
-    @description_remain = to_html(description_lines[first_n + 1..line_num].join("\n"))
+    if line_num > first_n
+      @description_first = to_html(description_lines[0..first_n].join("\n"))
+      @description_remain = to_html(description_lines[first_n + 1..line_num].join("\n"))
+    elsif line_num > 1
+      @description_first = to_html(description_lines[0..first_n].join("\n"))
+      @description_remain = ''
+    else
+      @description_first = ''
+      @description_remain = ''
+    end
   end
 
   def to_html(text)
-    url_pattern = %r{/(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/}
+    url_pattern = %r/(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/
     text.gsub(url_pattern, '<a href=\1>\1</a>').gsub(/\n/, '<br>')
   end
 end

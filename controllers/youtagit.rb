@@ -36,7 +36,6 @@ class YouTagit < Sinatra::Base
     else
       flash[:error] = result.value.message
     end
-
     redirect '/'
   end
 end
