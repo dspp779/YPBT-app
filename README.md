@@ -1,5 +1,5 @@
 # YouTagit
-[ ![Codeship Status for ISS-SOA/ypbt-api](https://codeship.com/projects/c2f0d920-8535-0134-9419-0ea196d1355a/status?branch=master)](https://app.codeship.com/projects/182029)
+[ ![Codeship Status for RubyStarts3/YPBT-app](https://app.codeship.com/projects/25c34b80-9a06-0134-f566-4e85899d7fda/status?branch=master)](https://app.codeship.com/projects/187921)
 
 This is our Lo-Fi Storyboards
 
