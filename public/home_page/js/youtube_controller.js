@@ -49,3 +49,29 @@ function loadDetail(){
  });
 }
 $(".tag-point").hover(loadDetail);
+
+// click the like in time tag popover
+function ajax_like_tag(id){
+    $.ajax({
+      type: 'PUT',
+      url: '/timetag_add_one_like',
+      data: { 'id': id },
+    });
+}
+function add_like_count(id,count){
+    count.text((+count.text()+1));
+    ajax_like_tag(id);
+}
+function like_tag(like){
+    like = $(like);
+    if(!like.hasClass('liked')){
+        like.removeClass('gray').addClass('liked');
+        var tag_detail = like.parents('.tag-detail');
+        var tag_id = tag_detail.attr('for');
+        var tag_point = $('#'+tag_id);
+        var count = tag_detail.find('span.like-count');
+        add_like_count(tag_id,count);
+        tag_point.data('bs.popover').options.content = tag_detail[0];
+    }
+    return false;
+}

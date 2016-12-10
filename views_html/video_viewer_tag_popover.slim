@@ -1,14 +1,18 @@
-.tag-detail
+.tag-detail for="#{ @tag.time_tag_id }"
   a href="#{ @tag.comment_author_channel_url }"
     img src="#{ @tag.comment_author_image_url }"
   = @tag.comment_author_name
   .pull-right style="margin-top:0px;"
-    .tag_like_count id="#{ @tag.time_tag_id }" data-clicked="0"
-      img.like_count src= "/like.png" style="height:25px;"
-      = @tag.like_count
+      img.like_count.gray {
+        src= "/like.png" 
+        style="height:25px;"
+        onclick="like_tag(this);"
+      }
+      span.like-count
+        = @tag.like_count
   br
   div
     p 
       ==@tag.comment_text_display
 
-script type="text/javascript" src="/home_page/js/tag_popover.js"
+/ script type="text/javascript" src="/home_page/js/tag_popover.js"
