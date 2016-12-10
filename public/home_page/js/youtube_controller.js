@@ -20,7 +20,6 @@ tag.id = 'iframe-demo';
 tag.src = 'https://www.youtube.com/iframe_api';
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
 var player;
 function onYouTubeIframeAPIReady() {
 player = new YT.Player('ytplayer');
@@ -29,7 +28,20 @@ player = new YT.Player('ytplayer');
 function seekTo(second){
   player.seekTo(second);
 }
-
+function test(){
+    var duratime = player.getDuration();
+    ttt = setInterval(print_time(),300);
+}
+function print_time(){
+    var duration = player.getDuration();
+    var point = document.getElementById('add-point');
+    moveadd = function(){
+        var progress = player.getCurrentTime()*100.0/duration;
+        console.log(progress);
+        point.style.left = progress+'%';
+    }
+    return moveadd;
+}
 // get tag detail when mouseenter
 function loadDetail(){
  var tag = $(this);
