@@ -10,11 +10,10 @@ class YouTagit < Sinatra::Base
     end
   end
 
-  get '/timetag_add_one_like/:id/?' do
+  put '/timetag_add_one_like/?' do
     results = TimetagAddOneLike.call(params[:id])
 
-    if results.success?
-    else
+    unless results.success?
       flash[:error] = results.value.message
     end
   end

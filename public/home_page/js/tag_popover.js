@@ -9,7 +9,12 @@ function addLikeCount(){
     tag.get(0).lastChild.nodeValue = (+like_count + 1)
     $(this).data("clicked", "1")
 
-    $.get('/timetag_add_one_like/' + id, function(){});
+    $.ajax({
+      type: 'PUT',
+      url: '/timetag_add_one_like',
+      data: { 'id': id },
+      success: function(){}
+    });
   }
 }
 $(".tag_like_count").click(addLikeCount);
