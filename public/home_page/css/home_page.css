@@ -73,3 +73,18 @@
 .tag-detail{
     width: 300px;
 }
+.tag_like_count:link
+{
+  text-decoration: none;
+  color: #777777;
+}
+.tag_like_count:hover
+{
+  text-decoration: none;
+  color: #777777;
+}
+.tag_like_count img.like_count:hover
+{
+  cursor: pointer;
+  cursor: hand;
+}

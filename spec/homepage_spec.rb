@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require_relative 'spec_helper'
-
+=begin
 describe 'Homepage' do
   before do
     unless @browser
@@ -103,3 +103,4 @@ describe 'Homepage' do
     end
   end
 end
+=end

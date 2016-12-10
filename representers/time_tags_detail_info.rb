@@ -9,6 +9,7 @@ class TimeTagsDetailInfo < Roar::Decorator
   property :tag_type, render_nil: true
   property :start_time_percentage
   property :end_time_percentage, render_nil: true
+  property :click_count
   property :like_count
   property :comment_text_display
   property :comment_author_name

@@ -9,4 +9,13 @@ class YouTagit < Sinatra::Base
       redirect '/'
     end
   end
+
+  get '/timetag_add_one_like/:id/?' do
+    results = TimetagAddOneLike.call(params[:id])
+
+    if results.success?
+    else
+      flash[:error] = results.value.message
+    end
+  end
 end
