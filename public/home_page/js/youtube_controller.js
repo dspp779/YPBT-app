@@ -35,6 +35,13 @@ function onStateChange (){
 }
 function onReady(){
     progress_tracker();
+    var add_point = $('#add-point');
+    var popotion = { container: 'body',
+                     html: true,
+                     placement:'bottom',
+                     trigger:'click',
+                     content: get_add_form};
+    add_point.popover(popotion);
 }
 function seekTo(second){
   player.seekTo(second);
@@ -47,12 +54,9 @@ function progress_tracker(){
         var progress = player.getCurrentTime()*100.0/duration;
         point.style.left = progress+'%';
     }
-    setInterval(add_func,300);
+    setInterval(add_func,1000);
 }
-function add_new_tag(){
-    player.pauseVideo();
-    return false;
-}
+
 // get tag detail when mouseenter
 function loadDetail(){
  var tag = $(this);
@@ -105,3 +109,16 @@ $(".tag-bar").ready(function() {
   console.log("should hide after loading")
   //$("#tag-bar-loading").hide();
 });
+
+// add new tag
+// function add_new_tag(){
+//     player.pauseVideo();
+//     return false;
+// }
+function get_add_form(){
+    var crrent_time = player.getCurrentTime();
+    player.pauseVideo();
+    var form = $('#new_tag_form').clone(true);
+    form.find('[name=start_time]').attr('valuse',Math.floor(crrent_time));
+    return form;
+}

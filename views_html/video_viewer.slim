@@ -45,7 +45,25 @@
         data-toggle="collapse"
         data-target="#description-remain"
       } More..
-
+div.hidden
+  form.add-tag-form id="new_tag_form"
+    input.hidden name="start_time" type="number"
+    input.hidden name="video_id" type="text" value="#{@whole_info.video_info.video_id}"
+    .form-group
+      label for="tag_type"
+        = "Type"
+      select.form-control name="tag_type"
+        option value="music"
+          = "music"
+        option valuse="video"
+          = "video"
+    .form-group
+      label for="comment_text_display"
+        = "Description"
+      textarea.form-control type="text" row=3 name="comment_text_display" style="max-width:300px"
+    .form-group.text-right
+      button.btn
+        = "Submit"
 script type="text/javascript" src="/home_page/js/youtube_controller.js"
 / - results = HTTP.get("#{YouTagit.config.YPBT_API}/Comments/\
 /                      #{@whole_info.video_info.video_id}")
