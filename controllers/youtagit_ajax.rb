@@ -21,7 +21,7 @@ class YouTagit < Sinatra::Base
     end
   end
 
-  put '/add_new_time_tag/?' do
+  post '/add_new_time_tag/?' do
     results = AddNewTimeTag.call(request)
 
     if results.success?
