@@ -63,9 +63,19 @@
     position: relative;
     background-color:rgb(217,217,217);
 }
-
 .tag-point:hover {
     background-color: rgb(255,20,20)!important;;
+}
+.add-point {
+    border-radius: 16px;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+}
+.add-point:hover
+{
+  cursor: pointer;
+  cursor: hand;
 }
 .popover{
     max-width: 100%; // Max Width of the popover (depending on the container!)
@@ -99,7 +109,7 @@ img.like_count:hover
   -webkit-animation-iteration-count: infinite;
   animation-name: back_and_forth;
   animation-duration: 2s;
-  animation-iteration-count: infinite; 
+  animation-iteration-count: infinite;
 }
 @-webkit-keyframes back_and_forth
 {

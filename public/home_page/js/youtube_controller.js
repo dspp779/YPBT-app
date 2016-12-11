@@ -22,25 +22,36 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubeIframeAPIReady() {
-player = new YT.Player('ytplayer');
-}
+player = new YT.Player('ytplayer',{
+        events: {
+            'onStateChange': onStateChange,
+            'onReady': onReady
+        }
+    });
 
+}
+function onStateChange (){
+    return ;
+}
+function onReady(){
+    progress_tracker();
+}
 function seekTo(second){
   player.seekTo(second);
 }
-function test(){
+function progress_tracker(){
     var duratime = player.getDuration();
-    ttt = setInterval(print_time(),300);
-}
-function print_time(){
-    var duration = player.getDuration();
-    var point = document.getElementById('add-point');
-    moveadd = function(){
+    add_func = function(){
+        var duration = player.getDuration();
+        var point = document.getElementById('add-point');
         var progress = player.getCurrentTime()*100.0/duration;
-        console.log(progress);
         point.style.left = progress+'%';
     }
-    return moveadd;
+    setInterval(add_func,300);
+}
+function add_new_tag(){
+    player.pauseVideo();
+    return false;
 }
 // get tag detail when mouseenter
 function loadDetail(){
