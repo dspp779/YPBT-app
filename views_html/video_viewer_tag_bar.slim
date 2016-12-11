@@ -1,7 +1,7 @@
 / div id="tag-bar-loading"
 - @whole_info.time_tags.each do |tag|
   .tag-point {
-    style = "left:#{tag.start_time_percentage*100}%;\
+    style = "left:calc(#{tag.start_time_percentage*100}% - 8px);\
              background-color:rgb(255,#{tag.like_color},#{tag.like_color})"
     onclick = "seekTo(#{tag.start_time_second});"
     id= "#{tag.time_tag_id}"

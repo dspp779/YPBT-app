@@ -52,7 +52,7 @@ function progress_tracker(){
         var duration = player.getDuration();
         var point = document.getElementById('add-point');
         var progress = player.getCurrentTime()*100.0/duration;
-        point.style.left = progress+'%';
+        point.style.left = 'calc('+progress+'% - 8px)';
     }
     setInterval(add_func,1000);
 }
