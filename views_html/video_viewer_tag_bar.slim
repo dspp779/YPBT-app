@@ -1,16 +1,9 @@
-
-  / div id="tag-bar-loading"
-  - @whole_info.time_tags.each do |tag|
-    .tag-point {
-      style = "left:#{tag.start_time_percentage*100}%;\
-               background-color:rgb(255,#{tag.like_color},#{tag.like_color})"
-      onclick = "seekTo(#{tag.start_time_second});"
-      id= "#{tag.time_tag_id}"
-      data-container = "body"
-    }
-  .add-point {
-    style = "left:0%;\
-             background-color:rgb(150,150,255)"
-    id= "add-point"
-    onclick= ""
+/ div id="tag-bar-loading"
+- @whole_info.time_tags.each do |tag|
+  .tag-point {
+    style = "left:#{tag.start_time_percentage*100}%;\
+             background-color:rgb(255,#{tag.like_color},#{tag.like_color})"
+    onclick = "seekTo(#{tag.start_time_second});"
+    id= "#{tag.time_tag_id}"
+    data-container = "body"
   }

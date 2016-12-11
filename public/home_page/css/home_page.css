@@ -102,9 +102,7 @@ img.like_count:hover
   width: 2%;
   height: 16px;
   background-color: rgb(255,20,20)!important;;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  position: relative;
+  position: absolute;
 
   -webkit-animation-name: back_and_forth;
   -webkit-animation-duration: 2s;

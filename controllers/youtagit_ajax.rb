@@ -1,4 +1,15 @@
 class YouTagit < Sinatra::Base
+  get '/tag_bar/:video_id/?' do
+    results = SearchTagBarPoints.call(params)
+
+    if results.success?
+      @whole_info = results.value
+      slim :video_viewer_tag_bar, layout: false
+    else
+      flash[:error] = results.value.message
+    end
+  end
+
   get '/time_tag/:id/?' do
     results = SearchTimeTagDetail.call(params[:id])
     if results.success?

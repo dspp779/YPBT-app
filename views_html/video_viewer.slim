@@ -9,7 +9,14 @@
     }
 .container
   div.tag-bar
-    include video_viewer_tag_bar
+    div id="tag-bar-loading"
+    .add-point {
+      style = "left:0%;\
+               background-color:rgb(150,150,255)"
+      id= "add-point"
+      onclick= ""
+    }
+    /include video_viewer_tag_bar
 .container.content-container
   h4
     = @whole_info.video_info.title
@@ -65,6 +72,8 @@ div.hidden
       button.btn
         = "Submit"
 script type="text/javascript" src="/home_page/js/youtube_controller.js"
+script 
+  == "load_tag_bar('#{@whole_info.video_info.video_id}');"
 / - results = HTTP.get("#{YouTagit.config.YPBT_API}/Comments/\
 /                      #{@whole_info.video_info.video_id}")
 / - comments = results.body.to_s

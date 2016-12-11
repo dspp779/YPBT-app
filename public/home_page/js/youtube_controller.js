@@ -59,6 +59,7 @@ function progress_tracker(){
 
 // get tag detail when mouseenter
 function loadDetail(){
+ console.log("load detail");
  var tag = $(this);
  tag.off( "mouseenter mouseleave" );
  var id =tag.attr('id');
@@ -75,7 +76,7 @@ function loadDetail(){
      }
  });
 }
-$(".tag-point").hover(loadDetail);
+//$(".tag-point").hover(loadDetail);
 
 // click the like in time tag popover
 function ajax_like_tag(id){
@@ -103,13 +104,6 @@ function like_tag(like){
     return false;
 }
 
-$(".tag-bar").ready(function() {
-  //var tag-bar = $(".tag-bar");
-  //$(".tag-bar").load("/views_html/load_tag_bar.slim")
-  console.log("should hide after loading")
-  //$("#tag-bar-loading").hide();
-});
-
 // add new tag
 // function add_new_tag(){
 //     player.pauseVideo();
@@ -122,3 +116,17 @@ function get_add_form(){
     form.find('[name=start_time]').attr('valuse',Math.floor(crrent_time));
     return form;
 }
+
+function load_tag_bar(video_id){
+  var loading_tag = $("#tag-bar-loading");
+  var tag_bar = $('.tag-bar');
+  $.ajax({
+    type: 'GET',
+    url: '/tag_bar/' + video_id,
+    success: function(tag_bar_loaded){
+      loading_tag.remove();
+      tag_bar.append(tag_bar_loaded);
+      $(".tag-point").hover(loadDetail);
+    }
+  });
+};
