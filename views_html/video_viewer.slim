@@ -8,7 +8,8 @@
       allowfullscreen
     }
 .container
-  include video_viewer_tag_bar
+  div.tag-bar
+    include video_viewer_tag_bar
 .container.content-container
   h4
     = @whole_info.video_info.title
