@@ -7,9 +7,10 @@
       frameborder="0"
       allowfullscreen
     }
-.container
-  div.tag-bar
-    include video_viewer_tag_bar
+.container id="tag-bar"
+  div.tag-bar for="#{ @whole_info.video_info.video_id }"
+    div id="tag-bar-loading"
+    /include video_viewer_tag_bar
 .container.content-container
   h4
     = @whole_info.video_info.title

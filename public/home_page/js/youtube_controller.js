@@ -55,6 +55,7 @@ function add_new_tag(){
 }
 // get tag detail when mouseenter
 function loadDetail(){
+ console.log("load detail");
  var tag = $(this);
  tag.off( "mouseenter mouseleave" );
  var id =tag.attr('id');
@@ -71,7 +72,7 @@ function loadDetail(){
      }
  });
 }
-$(".tag-point").hover(loadDetail);
+//$(".tag-point").hover(loadDetail);
 
 // click the like in time tag popover
 function ajax_like_tag(id){
@@ -99,9 +100,19 @@ function like_tag(like){
     return false;
 }
 
-$(".tag-bar").ready(function() {
-  //var tag-bar = $(".tag-bar");
-  //$(".tag-bar").load("/views_html/load_tag_bar.slim")
-  console.log("should hide after loading")
-  //$("#tag-bar-loading").hide();
-});
+function load_tag_bar(){
+  var tag_bar_unloaded = $(".tag-bar");
+  var video_id = tag_bar_unloaded.attr('for');
+  var tag_bar_container = tag_bar_unloaded.parents('.container#tag-bar');
+
+  $.ajax({
+    type: 'GET',
+    url: '/tag_bar/' + video_id,
+    success: function(tag_bar_loaded){
+      tag_bar_unloaded.remove();
+      tag_bar_container.append(tag_bar_loaded);
+    }
+  });
+  $(".tag-point").hover(loadDetail);
+};
+load_tag_bar();
