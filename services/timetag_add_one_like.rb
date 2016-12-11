@@ -14,7 +14,7 @@ class TimetagAddOneLike
     response = HTTP.put(url, :json => params)
 
     begin response.status == 200
-      Right()
+      Right(true)
     rescue
       Left(Error.new('Our servers failed - we are investigating!'))
     end
