@@ -1,17 +1,21 @@
 # frozen_string_literal: true
 
-# Add one like count on seleted timetag in API database
-class TimetagAddOneLike
+# Add add new timetag in API database
+class AddNewTimeTag
   extend Dry::Monads::Either::Mixin
   extend Dry::Container::Mixin
 
-  register :api_call, lambda { |timetag_id|
-    url = "#{YouTagit.config.YPBT_API}/TimeTag/add_one_like"
+  register :api_call, lambda { |request|
+    url = "#{YouTagit.config.YPBT_API}/TimeTag"
     params = {
-      time_tag_id: timetag_id,
+      video_id: request[:video_id],
+      start_time: request[:start_time],
+      tag_type: request[:tag_type],
+      comment_text_display: request[:comment_text_display],
       api_key: YouTagit.config.YOUTUBE_API_KEY
     }
-    response = HTTP.put(url, :json => params)
+    params[:end_time] = request[:end_time] unless request[:end_time].nil?
+    response = HTTP.post(url, :json => params)
 
     begin response.status == 200
       Right(response.body.to_json)
@@ -32,10 +36,10 @@ class TimetagAddOneLike
     end
   }
 
-  def self.call(timetag_id)
+  def self.call(request)
     Dry.Transaction(container: self) do
       step :api_call
       #step :return_api_result
-    end.call(timetag_id)
+    end.call(request)
   end
 end
