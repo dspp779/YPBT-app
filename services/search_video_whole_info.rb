@@ -33,7 +33,7 @@ class SearchVideoWholeInfo
   def self.call(url_request)
     Dry.Transaction(container: self) do
       step :search_video
-      step :search_time_tags
+      #step :search_time_tags
     end.call(url_request)
   end
 end

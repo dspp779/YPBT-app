@@ -94,15 +94,15 @@ img.like_count:hover
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
 }
-
+.add-tag-form{
+    width: 300px;
+}
 #tag-bar-loading
 {
   width: 2%;
   height: 16px;
   background-color: rgb(255,20,20)!important;;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  position: relative;
+  position: absolute;
 
   -webkit-animation-name: back_and_forth;
   -webkit-animation-duration: 2s;
