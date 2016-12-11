@@ -87,3 +87,10 @@ function like_tag(like){
     }
     return false;
 }
+
+$(".tag-bar").ready(function() {
+  //var tag-bar = $(".tag-bar");
+  //$(".tag-bar").load("/views_html/load_tag_bar.slim")
+  console.log("should hide after loading")
+  //$("#tag-bar-loading").hide();
+});

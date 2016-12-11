@@ -9,6 +9,7 @@
     }
 .container
   div.tag-bar
+    div id="tag-bar-loading"
     - @whole_info.time_tags.each do |tag|
       .tag-point {
         style = "left:#{tag.start_time_percentage*100}%;\
@@ -59,6 +60,6 @@
       } More..
 
 script type="text/javascript" src="/home_page/js/youtube_controller.js"
-- results = HTTP.get("#{YouTagit.config.YPBT_API}/Comments/\
-                      #{@whole_info.video_info.video_id}")
-- comments = results.body.to_s
+/ - results = HTTP.get("#{YouTagit.config.YPBT_API}/Comments/\
+/                      #{@whole_info.video_info.video_id}")
+/ - comments = results.body.to_s
