@@ -35,13 +35,7 @@ function onStateChange (){
 }
 function onReady(){
     progress_tracker();
-    var add_point = $('#add-point');
-    var popotion = { container: 'body',
-                     html: true,
-                     placement:'bottom',
-                     trigger:'click',
-                     content: get_add_form};
-    add_point.popover(popotion);
+    load_add_poin_func();
 }
 function seekTo(second){
   player.seekTo(second);
@@ -59,7 +53,6 @@ function progress_tracker(){
 
 // get tag detail when mouseenter
 function loadDetail(){
- console.log("load detail");
  var tag = $(this);
  tag.off( "mouseenter mouseleave" );
  var id =tag.attr('id');
@@ -116,7 +109,26 @@ function get_add_form(){
     form.find('[name=start_time]').attr('valuse',Math.floor(crrent_time));
     return form;
 }
+function load_add_poin_func(){
+    var add_point = $('#add-point');
+    var popotion = { container: 'body',
+                     html: true,
+                     placement:'bottom',
+                     trigger:'click',
+                     content: get_add_form};
+    add_point.popover(popotion);
+}
+function close_add_form(event){
+    event.preventDefault();
+    $('#add-point').click();
+    return false;
+}
+function submmit_form(event){
+    event.preventDefault();
+    return false;
+}
 
+// load tag bar
 function load_tag_bar(video_id){
   var loading_tag = $("#tag-bar-loading");
   var tag_bar = $('.tag-bar');

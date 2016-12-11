@@ -60,7 +60,7 @@
 .tag-bar {
     height:16px;
     margin-top: 6px;
-    margin-bottom: 6px;
+    margin-bottom: 23px;
     position: relative;
     background-color:rgb(217,217,217);
 }
@@ -80,7 +80,7 @@
   cursor: hand;
 }
 .popover{
-    max-width: 100%; // Max Width of the popover (depending on the container!)
+    max-width: 100%; /* Max Width of the popover (depending on the container!)*/
 }
 .tag-detail{
     width: 300px;
@@ -124,4 +124,64 @@ img.like_count:hover
   0%   {left:0%; top:0%;}
   50%  {left:49%; top:0%;}
   100%  {left:98%; top:0%;}
+}
+
+.add-point {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 20px;
+  background: transparent;
+}
+.add-point:hover{
+    -webkit-animation-name: add-point-hover ;
+    animation-name: add-point-hover;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+.pin {
+  width: 100%;
+  height: 100%;
+  border-radius: 50% 0% 50% 50%;
+  background: #FF9F9F;
+  position: absolute;
+  transform: rotate(-45deg);
+}
+.cross {
+   width: 60%;
+   height: 60%;
+    top: 20%;
+    left: 20%;
+   position: relative;
+}
+
+.cross:before, .cross:after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  background: #FFEFEF;
+}
+
+.cross:before {
+  left: 50%;
+  width: 40%;
+  margin-left: -20%;
+  height: 100%;
+}
+
+.cross:after {
+  top: 50%;
+  height: 40%;
+  margin-top: -20%;
+  width: 100%;
+}
+
+@keyframes add-point-hover{
+    0%   {top:20px;}
+    25%  {top:17px;}
+    50%  {top:20px;}
+    75%  {top:23px;}
+    100%  {top:20px;}
 }

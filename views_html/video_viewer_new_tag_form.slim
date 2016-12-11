@@ -1,0 +1,20 @@
+form.add-tag-form id="new_tag_form"
+  input.hidden name="start_time" type="number"
+  input.hidden name="video_id" type="text" value="#{@whole_info.video_info.video_id}"
+  .form-group
+    label for="tag_type"
+      = "Type"
+    select.form-control name="tag_type"
+      option value="music"
+        = "music"
+      option valuse="video"
+        = "video"
+  .form-group
+    label for="comment_text_display"
+      = "Description"
+    textarea.form-control type="text" row=3 name="comment_text_display" style="max-width:300px"
+  .form-group.text-right
+    button.btn onclick="close_add_form(event)" style="margin-right:3px"
+      = "Close"
+    button.btn onclick="submmit_form(event)"
+      = "Submit"
