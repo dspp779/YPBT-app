@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-Error = Struct.new :message
+Error = Struct.new :code, :message

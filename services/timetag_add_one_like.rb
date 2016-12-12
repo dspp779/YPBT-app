@@ -5,19 +5,15 @@ class TimetagAddOneLike
   extend Dry::Monads::Either::Mixin
   extend Dry::Container::Mixin
 
-  register :api_call, lambda { |request|
-    body_params = JSON.parse request.body.read
+  register :api_call, lambda { |params|
     url = "#{YouTagit.config.YPBT_API}/TimeTag/add_one_like"
-    params = {
-      time_tag_id: body_params['time_tag_id'],
-      api_key: YouTagit.config.YOUTUBE_API_KEY
-    }
-    response = HTTP.put(url, :json => params)
-
+    params[:api_key] = YouTagit.config.YOUTUBE_API_KEY
+    response = HTTP.put(url, json: params)
     if response.status == 200
       Right(response.body.to_json)
     else
-      Left(Error.new('Our servers failed - we are investigating!'))
+      Left(Error.new(:internal_error,
+                     'Our servers failed - we are investigating!'))
     end
   }
 

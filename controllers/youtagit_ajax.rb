@@ -22,22 +22,20 @@ class YouTagit < Sinatra::Base
   end
 
   post '/add_new_time_tag/?' do
-    results = AddNewTimeTag.call(request)
-
+    results = AddNewTimeTag.call(params)
     if results.success?
       results.value
     else
-      flash[:error] = results.value.message
+      ErrorRepresenter.new(results.value).to_status_response
     end
   end
 
   put '/timetag_add_one_like/?' do
-    results = TimetagAddOneLike.call(request) 
-
+    results = TimetagAddOneLike.call(params)
     if results.success?
       results.value
     else
-      flash[:error] = results.value.message
+      ErrorRepresenter.new(results.value).to_status_response
     end
   end
 end
