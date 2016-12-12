@@ -106,7 +106,8 @@ function get_add_form(){
     var crrent_time = player.getCurrentTime();
     player.pauseVideo();
     var form = $('#new_tag_form').clone(true);
-    form.find('[name=start_time]').attr('valuse',Math.floor(crrent_time));
+    form.attr("for", "popover");
+    form.find('[name=start_time]').attr('value',Math.floor(crrent_time));
     return form;
 }
 function load_add_poin_func(){
@@ -125,7 +126,18 @@ function close_add_form(event){
 }
 function submmit_form(event){
     event.preventDefault();
+    tag_form = $(".add-tag-form#new_tag_form[for='popover']");
+    params = tag_form.serialize();
+    ajax_add_new_tag(params);
+    $('#add-point').click();
     return false;
+}
+function ajax_add_new_tag(params){
+    $.ajax({
+      type: 'POST',
+      url: 'add_new_time_tag',
+      data: params,
+    });
 }
 
 // load tag bar
