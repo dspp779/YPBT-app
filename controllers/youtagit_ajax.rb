@@ -32,7 +32,7 @@ class YouTagit < Sinatra::Base
   end
 
   put '/timetag_add_one_like/?' do
-    results = TimetagAddOneLike.call(params[:id])
+    results = TimetagAddOneLike.call(request) 
 
     if results.success?
       results.value

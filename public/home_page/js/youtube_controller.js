@@ -76,7 +76,7 @@ function ajax_like_tag(id){
     $.ajax({
       type: 'PUT',
       url: '/timetag_add_one_like',
-      data: { 'id': id },
+      data: { 'time_tag_id': id },
     });
 }
 function add_like_count(id,count){

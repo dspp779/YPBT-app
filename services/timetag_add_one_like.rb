@@ -5,37 +5,25 @@ class TimetagAddOneLike
   extend Dry::Monads::Either::Mixin
   extend Dry::Container::Mixin
 
-  register :api_call, lambda { |timetag_id|
+  register :api_call, lambda { |request|
+    body_params = JSON.parse request.body.read
     url = "#{YouTagit.config.YPBT_API}/TimeTag/add_one_like"
     params = {
-      time_tag_id: timetag_id,
+      time_tag_id: body_params['time_tag_id'],
       api_key: YouTagit.config.YOUTUBE_API_KEY
     }
     response = HTTP.put(url, :json => params)
 
-    begin response.status == 200
+    if response.status == 200
       Right(response.body.to_json)
-    rescue
+    else
       Left(Error.new('Our servers failed - we are investigating!'))
     end
   }
 
-  register :return_api_result, lambda { |http_result|
-    if http_result.status == 200
-      data = JSON.parse(http_result.body.to_s)
-      tags = data.map { |tag| TimeTagsInfo.new(TimeTag.new).from_hash(tag) }
-      Right(tags)
-    elsif http_result.status == 404
-      Right([])
-    else
-      Left(ErrorRepresenter.new('Time tag not found'))
-    end
-  }
-
-  def self.call(timetag_id)
+  def self.call(request)
     Dry.Transaction(container: self) do
       step :api_call
-      #step :return_api_result
-    end.call(timetag_id)
+    end.call(request)
   end
 end
