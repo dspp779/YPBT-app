@@ -23,8 +23,10 @@ class YouTagit < Sinatra::Base
 
   post '/add_new_time_tag/?' do
     results = AddNewTimeTag.call(params)
+
     if results.success?
-      results.value
+      @whole_info = results.value
+      slim :video_viewer_tag_bar, layout: false
     else
       ErrorRepresenter.new(results.value).to_status_response
     end

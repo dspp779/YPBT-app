@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # Search user query video
+=begin
 class SearchTimeTags
   extend Dry::Monads::Either::Mixin
   extend Dry::Container::Mixin
@@ -32,3 +33,4 @@ class SearchTimeTags
     end.call(video_id)
   end
 end
+=end

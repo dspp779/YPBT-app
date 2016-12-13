@@ -133,10 +133,15 @@ function submmit_form(event){
     return false;
 }
 function ajax_add_new_tag(params){
+    var tag_bar = $('.tag-bar');
     $.ajax({
       type: 'POST',
       url: 'add_new_time_tag',
       data: params,
+      success: function(new_tag_point){
+        tag_bar.append(new_tag_point);
+        $(".tag-point").hover(loadDetail);
+      }
     });
 }
 
