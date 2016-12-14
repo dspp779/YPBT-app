@@ -7,7 +7,4 @@ class TimeTag
                 :like_count, :like_color, :comment_text_display,
                 :comment_author_name, :comment_author_channel_url,
                 :comment_author_image_url
-  def start_time_second
-    Duration.new(start_time).total
-  end
 end
