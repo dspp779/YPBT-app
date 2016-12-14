@@ -123,7 +123,7 @@ function get_add_form(){
     player.pauseVideo();
     var form = $('#new_tag_form').clone(true);
     form.attr("for", "popover");
-    form.find('[name=start_time]').attr('value',Math.floor(crrent_time));
+    form.find('[name=start_time]').attr('value',crrent_time);
     return form;
 }
 function load_add_poin_func(){
