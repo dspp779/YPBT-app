@@ -63,7 +63,7 @@ function setPlayPoint(e){
   var videoDuration = player.getDuration();
   var playSecond = videoDuration * playPercentage;
   player.seekTo(playSecond);
-
+  console.log('setPlayPoint');
   return false;
 }
 
@@ -131,13 +131,23 @@ function load_add_poin_func(){
     var popotion = { container: 'body',
                      html: true,
                      placement:'bottom',
-                     trigger:'click',
+                     trigger:'manual',
                      content: get_add_form};
     add_point.popover(popotion);
+    add_point.click(add_point_click);
+}
+function add_point_click(event){
+    event.stopPropagation();
+    var add_point = $(this);
+    if(add_point.is('[aria-describedby]')){
+        add_point.popover('hide');
+    }else{
+        add_point.popover('show');
+    }
 }
 function close_add_form(event){
     event.preventDefault();
-    $('#add-point').click();
+    $('#add-point').popover('hide');
     return false;
 }
 function submmit_form(event){
@@ -145,7 +155,7 @@ function submmit_form(event){
     tag_form = $(".add-tag-form#new_tag_form[for='popover']");
     params = tag_form.serialize();
     ajax_add_new_tag(params);
-    $('#add-point').click();
+    $('#add-point').popover('hide');
     return false;
 }
 function ajax_add_new_tag(params){
