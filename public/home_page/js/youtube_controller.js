@@ -48,7 +48,23 @@ function progress_tracker(){
         var progress = player.getCurrentTime()*100.0/duration;
         point.style.left = 'calc('+progress+'% - 10px)';
     }
-    setInterval(add_func,1000);
+    setInterval(add_func,500);
+}
+function moveAdd(progress){
+  var point = document.getElementById('add-point');
+  point.style.left = 'calc('+progress+'% - 10px)';
+}
+function setPlayPoint(e){
+  var bar = $('.tag-bar');
+  var barX = bar.offset().left;
+  var playTotal = bar.width();
+  var playPoint = e.pageX - barX;
+  var playPercentage = playPoint / playTotal;
+  var videoDuration = player.getDuration();
+  var playSecond = videoDuration * playPercentage;
+  player.seekTo(playSecond);
+
+  return false;
 }
 
 // get tag detail when mouseenter
