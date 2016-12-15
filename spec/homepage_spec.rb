@@ -1,42 +1,42 @@
 # frozen_string_literal: true
 require_relative 'spec_helper'
 
-describe 'Homepage' do
-  before do
-    unless @browser
-      @browser = Watir::Browser.new
-    end
-  end
+# describe 'Homepage' do
+#   before do
+#     unless @browser
+#       @browser = Watir::Browser.new
+#     end
+#   end
 
-  after do
-    @browser.close
-  end
+#   after do
+#     @browser.close
+#   end
 
-  describe 'Page elements' do
-    it '(HAPPY) should see website features' do
-      # GIVEN
-      @browser.goto homepage
-      @browser.title.must_include 'YouTagit'
-      @browser.nav(class:'container-fluid').visible?.must_equal true
-      @browser.a(class:'navbar-brand').text.must_include 'YouTagit'
-      @browser.p(class:'navbar-text').text.must_include 'Tag your favorite moments on YouTube Videos'
-      @browser.label.text.must_include 'Search YouTube Video URL:'
+#   describe 'Page elements' do
+#     it '(HAPPY) should see website features' do
+#       # GIVEN
+#       @browser.goto homepage
+#       @browser.title.must_include 'YouTagit'
+#       @browser.nav(class:'container-fluid').visible?.must_equal true
+#       @browser.a(class:'navbar-brand').text.must_include 'YouTagit'
+#       @browser.p(class:'navbar-text').text.must_include 'Tag your favorite moments on YouTube Videos'
+#       @browser.label.text.must_include 'Search YouTube Video URL:'
 
-      @browser.div(id: 'search-bar-container').visible?.must_equal true
-      @browser.span(class:'input-group-addon logo-addon').visible?.must_equal true
+#       @browser.div(id: 'search-bar-container').visible?.must_equal true
+#       @browser.span(class:'input-group-addon logo-addon').visible?.must_equal true
 
-    end
+#     end
 
-    # it '(HAPPY) should see content' do
-    #   # GIVEN
-    #   @browser.goto homepage
-    #
-    #   # THEN
-    #   @browser.trs(class: 'groups_row').count.must_be :>=, 1
-    #   @browser.span(class: 'group_name').text.must_include 'Service'
-    #   @browser.span(class: 'group_url').text.must_include 'facebook'
-    # end
-  end
+#     # it '(HAPPY) should see content' do
+#     #   # GIVEN
+#     #   @browser.goto homepage
+#     #
+#     #   # THEN
+#     #   @browser.trs(class: 'groups_row').count.must_be :>=, 1
+#     #   @browser.span(class: 'group_name').text.must_include 'Service'
+#     #   @browser.span(class: 'group_url').text.must_include 'facebook'
+#     # end
+#   end
 
   # describe 'Adding a video' do
   #   it '(HAPPY) should be able to add a real video' do
@@ -107,5 +107,5 @@ describe 'Homepage' do
   #     flash_notice = @browser.div(class: 'alert')
   #     flash_notice.attribute_value('class').must_include 'danger'
   #   end
-  end
+#   end
 end
