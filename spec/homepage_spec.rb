@@ -108,4 +108,4 @@ require_relative 'spec_helper'
   #     flash_notice.attribute_value('class').must_include 'danger'
   #   end
 #   end
-end
+# end
