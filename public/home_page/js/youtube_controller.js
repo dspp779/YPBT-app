@@ -85,7 +85,6 @@ function loadDetail(){
      }
  });
 }
-//$(".tag-point").hover(loadDetail);
 
 // click the like in time tag popover
 function ajax_like_tag(id){
@@ -113,11 +112,6 @@ function like_tag(like){
     return false;
 }
 
-// add new tag
-// function add_new_tag(){
-//     player.pauseVideo();
-//     return false;
-// }
 function get_add_form(){
     var crrent_time = player.getCurrentTime();
     player.pauseVideo();
@@ -165,8 +159,7 @@ function ajax_add_new_tag(params){
       url: 'add_new_time_tag',
       data: params,
       success: function(new_tag_point){
-        tag_bar.append(new_tag_point);
-        $(".tag-point").hover(loadDetail);
+        tag_bar.append($(new_tag_point).hover(loadDetail));
       }
     });
 }
