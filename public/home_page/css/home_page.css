@@ -195,3 +195,15 @@ img.like_count:hover
    padding: 0 !important;
    margin: 0 !important;
 }
+
+.video-title-leave-out{
+  overflow: hidden;
+  max-height: 4.2rem;
+  font-size: 1.9rem;
+  line-height: 2.1rem;
+}
+
+.channel-title-leave-out{
+  overflow: hidden;
+  white-space: nowrap;
+}

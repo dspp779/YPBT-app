@@ -1,7 +1,7 @@
 h3 Popular Videos
 .container-fluid.content-container.row
   - @videos_pop_view.each do |video_pop_view|
-    .col-md-6.video-padding
+    .col-md-6.col-sm-3.video-padding
       .container-fluid.row
         .col-md-6.video-padding
           a href = video_pop_view.video_viewer_url
@@ -11,9 +11,9 @@ h3 Popular Videos
             }
         .col-md-6
           a href = video_pop_view.video_viewer_url
-            h4 #{video_pop_view.title}
+            h4.video-title-leave-out #{video_pop_view.title}
           a href = video_pop_view.yt_channel_url
-            p #{video_pop_view.channel_title}
+            p.channel-title-leave-out #{video_pop_view.channel_title}
           .container-fluid.row
             .col-md-6.nopadding
               img src = "/view.png" height = 20
