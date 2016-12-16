@@ -5,9 +5,11 @@ class GetPopVideos
   extend Dry::Monads::Either::Mixin
   extend Dry::Container::Mixin
 
+  NUMBER = 20
+
   register :get_pop_videos, lambda { |params|
     begin
-      results = HTTP.get("#{YouTagit.config.YPBT_API}/PopVideos/6")
+      results = HTTP.get("#{YouTagit.config.YPBT_API}/PopVideos/#{NUMBER}")
       videos_pop_json = JSON.parse(results.body.to_s)
 
       videos_pop_view = videos_pop_json.map do |video_pop_json|
