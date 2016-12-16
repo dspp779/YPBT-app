@@ -185,3 +185,13 @@ img.like_count:hover
     75%  {top:23px;}
     100%  {top:20px;}
 }
+
+.video-padding {
+   padding: 5px !important;
+   margin: 0 !important;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}

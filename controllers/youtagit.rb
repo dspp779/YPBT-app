@@ -4,14 +4,14 @@
 class YouTagit < Sinatra::Base
   # Home page: show list of all Videos
   get '/?' do
-    result = GetAllVideos.call
-    if result.success?
-      @data = result.value
-    else
-      #flash[:error] = result.value.message
-    end
+    result = GetPopVideos.call(params)
 
-    slim :videos
+    if result.success?
+      @videos_pop_view = result.value
+      slim :home_page
+    else
+      flash[:error] = result.value.message
+    end
   end
 
   get '/video_viewer/?' do
@@ -22,11 +22,11 @@ class YouTagit < Sinatra::Base
       @whole_info = results.value
       slim :video_viewer
     else
-      flash[:error] = results.value.message
+      #flash[:error] = results.value.message
       redirect '/'
     end
   end
-
+=begin
   post '/new_video/?' do
     url_request = UrlRequest.call(params)
     result = CreateNewVideo.call(url_request)
@@ -38,4 +38,5 @@ class YouTagit < Sinatra::Base
     end
     redirect '/'
   end
+=end
 end
