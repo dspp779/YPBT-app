@@ -65,7 +65,8 @@
     background-color:rgb(217,217,217);
 }
 .tag-point:hover {
-    background-color: rgb(255,20,20)!important;;
+    background-color: rgb(255,20,20)!important;
+    z-index: 1;
 }
 .add-point {
     border-radius: 16px;
