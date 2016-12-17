@@ -25,14 +25,8 @@ unless ENV['YPBT_API']
   ENV['YPBT_API'] = app.config.YPBT_API
 end
 
-
-
-
-
-EXISTS_VIDEO_URL = 'https://www.youtube.com/watch?v=OyDSCKYz5sA'
-NEW_GROUP_URL = 'https://www.youtube.com/watch?v=VLdmEDOAA4A'
-INVALID_GROUP_URL = 'https://www.youtube.com/watch?v=that_does_not_exist404'
-BAD_GROUP_URL = 'htt://www.youtube'
+HAPPY_VIDEO_URL = 'https://www.youtube.com/watch?v=OyDSCKYz5sA'
+SAD_VIDEO_URL = 'htt://www.youtube'
 
 HOST = 'http://localhost:9000/'
 
@@ -42,5 +36,5 @@ def homepage
 end
 
 def video_viewer_page(url)
-  "#{HOST}/video_viewer?video_url=#{url}"
+  "#{HOST}/video_viewer/?video_url=#{url}"
 end

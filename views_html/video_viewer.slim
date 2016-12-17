@@ -38,7 +38,7 @@
       img src = "/dislike.png" height = 24
       span
         = @whole_info.video_info.dislike_count
-      
+
 .container.content-container
   p style="margin:0;"
     == @whole_info.video_info.description_first 3
@@ -46,13 +46,14 @@
     == @whole_info.video_info.description_remain 3
   .container.text-center
     button.btn{
+        id="collapse"
         data-toggle="collapse"
         data-target="#description-remain"
       } More..
 div.hidden
   include video_viewer_new_tag_form
 script type="text/javascript" src="/home_page/js/youtube_controller.js"
-script 
+script
   == "load_tag_bar('#{@whole_info.video_info.video_id}');"
 / - results = HTTP.get("#{YouTagit.config.YPBT_API}/Comments/\
 /                      #{@whole_info.video_info.video_id}")
