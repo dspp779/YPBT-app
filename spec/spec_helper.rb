@@ -28,7 +28,7 @@ end
 HAPPY_VIDEO_URL = 'https://www.youtube.com/watch?v=OyDSCKYz5sA'
 SAD_VIDEO_URL = 'htt://www.youtube'
 
-HOST = 'http://localhost:9000/'
+HOST = 'http://ypbt-app.herokuapp.com/'
 
 # Helper methods
 def homepage
