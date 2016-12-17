@@ -23,9 +23,10 @@ class YouTagit < Sinatra::Base
       slim :video_viewer
     else
       flash[:error] = results.value.message
+      redirect '/'
     end
 
-    redirect '/'
+
   end
 =begin
   post '/new_video/?' do

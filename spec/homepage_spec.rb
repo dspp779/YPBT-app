@@ -67,11 +67,11 @@ describe 'Homepage' do
 
       # WHEN: add a valid video_Url
       @browser.text_field(id: 'yt_video_url_input').set(HAPPY_VIDEO_URL)
-      @browser.button(id: 'search-form-submit').click
-      Watir::Wait.until { @browser.goto video_viewer_page(HAPPY_VIDEO_URL) }
+
+      @browser.button(id: 'search-form-submit').click 
 
       # THEN
-      @browser.iframe(id: 'ytplayer').exist?.must_equal true
+      Watir::Wait.until { @browser.iframe(id: 'ytplayer').visible?}
       @browser.div(class: 'tag-bar').visible?.must_equal true
       content = @browser.div(class: 'container content-container')
       content.h4.visible?.must_equal true
@@ -87,17 +87,17 @@ describe 'Homepage' do
       @browser.button(id: 'collapse').click
     end
 
-    it 'should can use tag-bar add pin' do
+    # it 'should can use tag-bar add pin' do
       # GIVEN
-      @browser.goto video_viewer_page(HAPPY_VIDEO_URL)
+      # @browser.goto video_viewer_page(HAPPY_VIDEO_URL)
 
       # WHEN
-      @browser.div(class: 'add-point').click
+      # @browser.div(class: 'add-point').click
       # Watir::Wait.until { @browser.div(class: 'popover-content').visible? }
 
       # THEN
       # @browser.select_list(id: 'tag_type').select 'video'
       # @browser.text_field(name: 'comment_text_display').set('111')
-    end
+    # end
   end
 end
