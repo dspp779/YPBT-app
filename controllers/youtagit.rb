@@ -23,7 +23,7 @@ class YouTagit < Sinatra::Base
       slim :video_viewer
     else
       flash[:error] = results.value.message
-      redirect '/'
+      redirect back
     end
 
 

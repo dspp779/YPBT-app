@@ -15,7 +15,7 @@ class SearchVideoWholeInfo
       message = ErrorFlattener.new(
         ValidationError.new(url_request)
       ).to_s
-      Left(Error.new(message))
+      Left(Error.new(:bad_request, message))
     end
   }
 

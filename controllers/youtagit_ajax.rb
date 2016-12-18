@@ -6,7 +6,7 @@ class YouTagit < Sinatra::Base
       @whole_info = results.value
       slim :video_viewer_tag_bar, layout: false
     else
-      flash[:error] = results.value.message
+      results.value.message
     end
   end
 
@@ -16,8 +16,7 @@ class YouTagit < Sinatra::Base
       @tag = results.value
       slim :video_viewer_tag_popover, layout: false
     else
-      flash[:error] = results.value.message
-      redirect '/'
+      results.value.message
     end
   end
 
