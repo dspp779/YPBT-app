@@ -41,7 +41,7 @@ def video_viewer_page(url)
 end
 
 RSpec.configure do |config|
-  show retry status in spec process
+  #show retry status in spec process
   config.verbose_retry = true
   # Try twice (retry once)
   config.default_retry_count = 5
