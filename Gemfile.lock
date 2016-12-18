@@ -125,6 +125,11 @@ GEM
       ripl (>= 0.7.0)
     roar (1.0.4)
       representable (>= 2.0.1, < 2.4.0)
+    rspec-core (3.5.4)
+      rspec-support (~> 3.5.0)
+    rspec-retry (0.4.6)
+      rspec-core
+    rspec-support (3.5.0)
     ruby-duration (3.2.3)
       activesupport (>= 3.0.0)
       i18n
@@ -189,6 +194,7 @@ DEPENDENCIES
   rake
   rerun
   roar
+  rspec-retry (~> 0.4.5)
   ruby-duration
   sinatra
   slim
