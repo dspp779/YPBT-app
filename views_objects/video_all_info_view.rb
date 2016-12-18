@@ -21,6 +21,7 @@ class VideoAllInfoView
   def normalize(counts)
     min = counts.min
     range = counts.max - min
+    return Array.new(counts.length, 160) if range.zero?
     counts.map do |count|
       160 - ((count - min) * 100 / range)
     end
