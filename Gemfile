@@ -32,6 +32,7 @@ group :test do
   gem 'watir', '~> 6.0'
   gem 'headless'
   gem 'page-object'
+  gem 'rspec-retry', '~> 0.4.5'
 end
 
 group :development, :production do
